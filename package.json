@@ -1,0 +1,66 @@
+{
+  "name": "ReaderObjectRegistry",
+  "version": "1.0.0",
+  "swaggerFile": {
+    "version": "1.0.0",
+    "account": "magcenter"
+  },
+  "description": "The purpose of this (microservice) is to manage object reader registry",
+  "main": "./src/index.js",
+  "type": "storage",
+  "scripts": {
+    "lint": "gulp lint",
+    "docs": "gulp docs",
+    "pretest": "node ./local/testSetup.js",
+    "test": "exit 0",
+    "manualtest": "nyc gulp test",
+    "prestart": "node ./local/setup.js",
+    "start": "sh server-start.sh",
+    "commit-ready": "gulp docs; gulp lint; npm run test",
+    "unit": "mocha --recursive './test/src/unit/**/*.js'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "gulp docs; gulp lint",
+      "commit-msg": "node ./local/commitMsgCheck",
+      "pre-push": "npm run commit-ready"
+    }
+  },
+  "Contributors": [
+    {
+      "name": "Kanishk Kumar"
+    }
+  ],
+  "keywords": [
+    "swagger",
+    "engine",
+    "objectReaderRegistry"
+  ],
+  "private": true,
+  "dependencies": {
+    "bluebird": "3.7.2",
+    "connect": "3.7.0",
+    "jsonwebtoken": "8.5.1",
+    "lodash": "4.17.15",
+    "moment": "2.26.0",
+    "uuid": "8.1.0"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "eslint-plugin-import": "2.21.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.20.0",
+    "gulp": "4.0.2",
+    "husky": "4.2.5",
+    "mocha": "7.2.0",
+    "nyc": "15.1.0",
+    "supertest": "4.0.2"
+  },
+  "author": "MAG Center",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    // Git URl to be added
+    "url": "gitUrl"
+  }
+}
