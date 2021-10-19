@@ -1,66 +1,29 @@
 {
-  "name": "ReaderObjectRegistry",
+  "name": "universe",
   "version": "1.0.0",
-  "swaggerFile": {
-    "version": "1.0.0",
-    "account": "magcenter"
-  },
-  "description": "The purpose of this (microservice) is to manage object reader registry",
-  "main": "./src/index.js",
-  "type": "storage",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "lint": "gulp lint",
-    "docs": "gulp docs",
-    "pretest": "node ./local/testSetup.js",
-    "test": "exit 0",
-    "manualtest": "nyc gulp test",
-    "prestart": "node ./local/setup.js",
-    "start": "sh server-start.sh",
-    "commit-ready": "gulp docs; gulp lint; npm run test",
-    "unit": "mocha --recursive './test/src/unit/**/*.js'"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "gulp docs; gulp lint",
-      "commit-msg": "node ./local/commitMsgCheck",
-      "pre-push": "npm run commit-ready"
-    }
-  },
-  "Contributors": [
-    {
-      "name": "Kanishk Kumar"
-    }
-  ],
-  "keywords": [
-    "swagger",
-    "engine",
-    "objectReaderRegistry"
-  ],
-  "private": true,
-  "dependencies": {
-    "bluebird": "3.7.2",
-    "connect": "3.7.0",
-    "jsonwebtoken": "8.5.1",
-    "lodash": "4.17.15",
-    "moment": "2.26.0",
-    "uuid": "8.1.0"
-  },
-  "devDependencies": {
-    "chai": "4.2.0",
-    "eslint-plugin-import": "2.21.2",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.20.0",
-    "gulp": "4.0.2",
-    "husky": "4.2.5",
-    "mocha": "7.2.0",
-    "nyc": "15.1.0",
-    "supertest": "4.0.2"
-  },
-  "author": "MAG Center",
+  "author": "",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    // Git URl to be added
-    "url": "gitUrl"
+  "dependencies": {
+    "@makosmods/minio-helper": "^1.0.0",
+    "@makosmods/logger-helper": "^1.0.0",
+    "@makosmods/utils": "^1.0.0",
+    "aws-sdk": "^2.982.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "http-status": "^1.5.0",
+    "mysql2": "^2.3.2",
+    "nodemon": "^2.0.12",
+    "package.json": "^2.0.1",
+    "sequelize": "^6.7.0",
+    "sequelize-auto": "^0.8.4",
+    "sequelize-cli": "^6.2.0",
+    "stream-slice": "^0.1.2",
+    "util": "^0.12.4"
   }
 }
