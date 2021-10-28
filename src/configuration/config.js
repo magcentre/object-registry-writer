@@ -9,5 +9,11 @@ module.exports = {
     user: process.env.dbuser,
     password: process.env.dbpassword,
     database: process.env.dbname,
+  },
+  minio: {
+    accessKeyId: process.env.minio_accesskey,
+    secretAccessKey: process.env.minio_secretkey,
+    endpoint: process.env.minio_endpoint,
+    bucket: process.env.minio_bucket
   }
 }
