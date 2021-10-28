@@ -48,7 +48,7 @@ paths:
         "200":
           description: Success
           schema:
-            $ref: "#/definitions/SystemHealthResponse"
+           $ref: "#/definitions/UploadResponse"
         default:
           description: Error
           schema:
@@ -66,8 +66,23 @@ definitions:
       message:
         type: string
   UploadResponse:
-    required:
-      - message
     properties:
-      message:
+      id: 
+        type: integer
+        format: int32
+      name: 
         type: string
+      type: 
+        type: string
+      size: 
+        type: integer
+        format: int32
+      url: 
+        type: string
+      bucket: 
+        type: string
+      updatedAt: 
+        type: string
+      createdAt: 
+        type: string
+
