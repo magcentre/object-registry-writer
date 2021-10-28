@@ -1,10 +1,11 @@
-const e = require('cors');
 const processor = require('../processors/register.process');
+
+const config = require('../configuration/config');
 
 const upload = (req, res) => {
     let file = {
         ...req.files.file,
-        bucket: 'test'
+        bucket: config.minio.bucket
     }
     processor.uploadToMinio(file)
         .then((e) => processor.createRegistryEntry(e))

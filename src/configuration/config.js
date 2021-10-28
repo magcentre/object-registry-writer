@@ -14,6 +14,7 @@ module.exports = {
     accessKeyId: process.env.minio_accesskey,
     secretAccessKey: process.env.minio_secretkey,
     endpoint: process.env.minio_endpoint,
-    bucket: process.env.minio_bucket
+    bucket: process.env.minio_bucket,
+    encryptionKey: process.env.minio_encryptionKey
   }
 }
