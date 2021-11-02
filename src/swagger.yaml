@@ -44,11 +44,42 @@ paths:
           name: file
           type: file
           description: The Object to upload into registry
+      
       responses:
         "200":
           description: Success
           schema:
-           $ref: "#/definitions/UploadResponse"
+           properties:
+            id: 
+              type: integer
+              format: int32
+            name: 
+              description: "Name of the object stored in minio"
+              type: string
+            type: 
+              description: "mime type of the object"
+              type: string
+            size: 
+              type: integer
+              description: "Size of an object"
+              format: int32
+            url: 
+              type: string
+              description: "Key require to access the object from object reader"
+            bucket: 
+              type: string
+              description: "Bucket name in which the object is stored"
+            updatedAt: 
+              type: string
+              description: "Bucket name in which the object is stored"
+            createdAt: 
+              type: string
+        "400":
+          description: Error
+          schema:
+           properties:
+            message: 
+              type: string
         default:
           description: Error
           schema:
@@ -65,24 +96,3 @@ definitions:
     properties:
       message:
         type: string
-  UploadResponse:
-    properties:
-      id: 
-        type: integer
-        format: int32
-      name: 
-        type: string
-      type: 
-        type: string
-      size: 
-        type: integer
-        format: int32
-      url: 
-        type: string
-      bucket: 
-        type: string
-      updatedAt: 
-        type: string
-      createdAt: 
-        type: string
-
