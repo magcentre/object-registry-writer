@@ -1,8 +1,8 @@
-const dbModels = require('@makosmods/sequelize-helper').models;
+const dbModels = require('@magcentre/sequelize-helper').models;
 
-const minio = require('@makosmods/minio-helper');
+const minio = require('@magcentre/minio-helper');
 
-const utils = require('@makosmods/utils');
+const utils = require('@magcentre/utils');
 
 const path = require('path');
 
@@ -19,6 +19,7 @@ const uploadToMinio = (file) => {
 }
 
 let createRegistryEntry = (minioResponse) => {
+ 
   return dbModels.registry.create({
     name: minioResponse.name,
     type: minioResponse.type,

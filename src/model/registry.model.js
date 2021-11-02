@@ -16,9 +16,5 @@ module.exports =  (sequelize) => {
 
     const model = sequelize.define('registry', attributes, options);
 
-    model.randomFunction = (a) => {
-        console.log(a);
-    };
-
     return model;
 }

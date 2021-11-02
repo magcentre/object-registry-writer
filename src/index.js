@@ -2,11 +2,11 @@ const app = require('express')();
 
 const path = require('path');
 
-const initServer = require('@makosmods/init');
+const initServer = require('@magcentre/init');
 
-const initMinio = require('@makosmods/minio-helper').initMinio;
+const initMinio = require('@magcentre/minio-helper').initMinio;
 
-const { initDatabase } = require('@makosmods/sequelize-helper');
+const { initDatabase } = require('@magcentre/sequelize-helper');
 
 const config = require('./configuration/config');
 
