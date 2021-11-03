@@ -1,9 +1,11 @@
 const processor = require('../processors/system.processor');
 
+const { sendResult, sendError, getRichError  } = require('@magcentre/response-helper');
+
 const getHealthCheck = (req, res) => {
     processor.getSystemInfo()
-        .then((e) => res.status(200).json(e))
-        .catch((e) => console.log(e) );
+        .then((e) => sendResult(e, 200, res, req))
+        .catch((e) => sendError(e, res, 500, req));
 };
 
 module.exports = {
