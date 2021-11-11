@@ -7,9 +7,8 @@ const { sendResult, sendError, getRichError  } = require('@magcentre/response-he
 const upload = (req, res) => {
 
     if(!req.files.file) {
-        let badRequestErrpr = getRichError('Parameter', 'request must have object to upload');
-        
-        sendError(badRequestErrpr, res, 400, req);
+        let badRequestError = getRichError('Parameter', 'request must have object to upload');
+        sendError(badRequestError, res, 400, req);
         return;
     }
 

@@ -38,7 +38,7 @@ paths:
       description: Upload a object into registry
       operationId: upload
       consumes:
-         - multipart/form-data
+        - multipart/form-data
       parameters:
         - in: formData
           name: file
