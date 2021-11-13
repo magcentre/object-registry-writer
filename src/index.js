@@ -1,12 +1,21 @@
-const app = require('connect')();
+const app = require('express')();
 
-const init = require('@magmods/init');
+const path = require('path');
 
-let config = require('./configuration/config');
+const initServer = require('@magcentre/init');
 
-init(app, __dirname, config, dbValidate, { preOps: [initialize] })
-  .then((result) => {
-    ({ config } = result);
-  });
+const initMinio = require('@magcentre/minio-helper').initMinio;
 
-module.exports = app;
+const { initDatabase } = require('@magcentre/sequelize-helper');
+
+const config = require('./configuration/config');
+
+initDatabase( { ...config.database } , path.join(__dirname, 'model'))
+    .then((e) => initMinio(config.minio))
+    .then((e) => initServer(app, __dirname, config))
+    .then((e) => {
+        console.log("Service started on port ", config.port);
+    })
+    .catch((err) => {
+        console.log("Failed to start service", err);
+    });
