@@ -2,7 +2,7 @@ const dbModels = require('@magcentre/sequelize-helper').models;
 
 const minio = require('@magcentre/minio-helper');
 
-const utils = require('@magcentre/utils');
+const utils = require('@magcentre/api-utils');
 
 const path = require('path');
 
