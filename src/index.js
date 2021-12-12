@@ -12,7 +12,7 @@ const { initDatabase } = require('@magcentre/sequelize-helper');
 
 const config = require('./configuration/config');
 
-initDatabase({ ...config.database }, path.join(__dirname, 'model'))
+initDatabase(config.database, path.join(__dirname, 'model'))
     .then((e) => initMinio(config.minio))
     .then((e) => initServer(app, __dirname, config))
     .then((e) => {
