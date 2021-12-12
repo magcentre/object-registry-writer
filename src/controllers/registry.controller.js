@@ -1,28 +1,26 @@
+const { sendResult, sendError, getRichError } = require('@magcentre/response-helper');
 const processor = require('../processors/register.process');
 
 const config = require('../configuration/config');
 
-const { sendResult, sendError, getRichError  } = require('@magcentre/response-helper');
-
 const upload = (req, res) => {
+  if (!req.files.file) {
+    const badRequestError = getRichError('Parameter', 'request must have object to upload');
+    sendError(badRequestError, res, 400, req);
+    return;
+  }
 
-    if(!req.files.file) {
-        let badRequestError = getRichError('Parameter', 'request must have object to upload');
-        sendError(badRequestError, res, 400, req);
-        return;
-    }
+  const file = {
+    ...req.files.file,
+    bucket: config.minio.bucket,
+  };
 
-    let file = {
-        ...req.files.file,
-        bucket: config.minio.bucket
-    }
-    
-    processor.uploadToMinio(file)
-        .then((e) => processor.createRegistryEntry(e))
-        .then((e) => sendResult(e, 200, res, req))
-        .catch((e) => sendError(e, res, 500, req));
+  processor.uploadToMinio(file)
+    .then((e) => processor.createRegistryEntry(e))
+    .then((e) => sendResult(e, 200, res, req))
+    .catch((e) => sendError(e, res, 500, req));
 };
 
 module.exports = {
-    upload,
+  upload,
 };
