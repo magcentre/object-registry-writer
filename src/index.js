@@ -18,6 +18,7 @@ initDatabase(config.database, path.join(__dirname, 'model'))
   .then(() => {
     logger.info(`Service started on port ${config.port}`);
   })
-  .catch(() => {
+  .catch((e) => {
+    logger.error(e);
     logger.error('Failed to start service');
   });
