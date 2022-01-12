@@ -1,5 +1,5 @@
 {
-  "name": "WriterObjectRegistr",
+  "name": "object-registry-writer",
   "version": "1.0.0",
   "swaggerFile": {
     "version": "1.0.0",
@@ -7,7 +7,7 @@
   },
   "description": "The purpose of this (microservice) is to manage object reader registry",
   "main": "./src/index.js",
-  "type": "storage",
+  "type": "commonjs",
   "scripts": {
     "lint": "gulp lint",
     "docs": "gulp docs",
