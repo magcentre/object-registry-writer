@@ -20,6 +20,14 @@ swagger:
     _swagger_validate:
       name: swagger_validator
       validateResponse: true
+    
+    swagger_params_parser:
+      name: swagger_params_parser
+      multerOptions:
+        inMemory: false
+        dest: 'uploads'
+      jsonOptions:
+        limit: '50mb'
 
     # pipe for all swagger-node controllers
     swagger_controllers:
