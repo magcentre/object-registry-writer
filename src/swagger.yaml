@@ -44,6 +44,10 @@ paths:
           name: file
           type: file
           description: The Object to upload into registry
+        - in: query
+          name: userId
+          type: string
+          description: UserId for the encryption of the file
       responses:
         "200":
           description: Success

@@ -12,12 +12,18 @@ const upload = (req, res) => {
     return;
   }
 
+  if (!req.query.userId) {
+    const badRequestError = getRichError('Parameter', 'request must have key to upload');
+    sendError(badRequestError, res, 400, req);
+    return;
+  }
+
   const fileConfig = {
     ...req.files.file,
     bucket: config.minio.bucket,
   };
 
-  processor.processFile(req.files.file.path)
+  processor.processFile(req.files.file.path, req.query.userId)
     .then((e) => processor.uploadToMinio(fileConfig, e))
     .then((e) => processor.createRegistryEntry(e))
     .then((e) => sendResult(e, 200, res, req))
@@ -25,13 +31,12 @@ const upload = (req, res) => {
 };
 
 const create = (req, res) => {
-
   processor.createRegistryEntry({ ...req.body, accessKey: req.body.url })
     .then((e) => sendResult(e, 200, res, req))
     .catch((e) => sendError(e, res, 500, req));
-}
+};
 
 module.exports = {
   upload,
-  create
+  create,
 };

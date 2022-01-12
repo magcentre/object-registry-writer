@@ -42,7 +42,7 @@ const createRegistryEntry = (minioResponse) => models.registry.create({
  * @param {String} filePath 
  * @returns String encrypted filepath
  */
-const processFile = (filePath) => minio.processfile(filePath);
+const processFile = (filePath, encKey) => minio.processfile(filePath, encKey);
 
 module.exports = {
   uploadToMinio,
