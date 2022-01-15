@@ -30,7 +30,7 @@ jobs:
           target: "/home/prasanna/deplyement/object-writer/"
 
       - uses: appleboy/ssh-action@master
-        name: npm install and start service
+        name: Docker Build and Container run
         with:
           host: "185.213.175.212"
           username: "prasanna"
