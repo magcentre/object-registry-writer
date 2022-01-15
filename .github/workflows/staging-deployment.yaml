@@ -39,7 +39,7 @@ jobs:
           script: |
             cd /home/prasanna/deplyement/object-writer
             pwd
-            sudo docker stop object-writer
-            sudo docker rm object-writer
-            sudo docker build 0t magcentre/object-writer
-            sudo docker run --network=magcentre-network --name=object-writer -d magcentre/object-writer
+            sudo /usr/bin/docker stop object-writer
+            sudo /usr/bin/docker rm object-writer
+            sudo /usr/bin/docker build 0t magcentre/object-writer
+            sudo /usr/bin/docker run --network=magcentre-network --name=object-writer -d magcentre/object-writer
