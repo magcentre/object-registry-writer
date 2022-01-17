@@ -20,7 +20,7 @@ ENV \
   dbname='object-registry'\
   dbuser='root'\
   dbpassword='f3is4afiVihIplmadrLF12!'\
-  API_GATEWAY='http://api-gateway:5000/'
+  API_GATEWAY='http://api-gateway:5000'
 
 COPY . .
 
