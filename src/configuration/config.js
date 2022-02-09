@@ -1,8 +1,8 @@
 const DEFAULT_CONFIG_VERSION = 'v1.0.0';
 
 module.exports = {
-  env: process.env.NODE_ENV ?? 'development',
-  port: process.env.PORT ?? 5001,
+  env: process.env.NODE_ENV || 'development',
+  port: process.env.PORT || 5001,
   database: {
     host: process.env.dbhost,
     port: process.env.dbport,
@@ -16,5 +16,8 @@ module.exports = {
     endpoint: process.env.minio_endpoint,
     bucket: process.env.minio_bucket,
     encryptionKey: process.env.minio_encryptionKey
-  }
-}
+  },
+  jwt: {
+    secret: process.env.JWT_SECRET,
+  },
+};

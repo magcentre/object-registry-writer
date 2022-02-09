@@ -5,7 +5,6 @@ const processor = require('../processors/register.process');
 const config = require('../configuration/config');
 
 const upload = (req, res) => {
-
   if (!req.files.file) {
     const badRequestError = getRichError('Parameter', 'request must have object to upload');
     sendError(badRequestError, res, 400, req);

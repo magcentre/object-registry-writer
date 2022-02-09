@@ -48,6 +48,7 @@
     "@magcentre/response-helper": "^1.0.1",
     "@magcentre/sequelize-helper": "^1.0.0",
     "express": "^4.12.3",
+    "jsonwebtoken": "^8.5.1",
     "systeminformation": "^5.9.8"
   },
   "devDependencies": {
