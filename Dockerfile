@@ -15,11 +15,11 @@ ENV \
   minio_endpoint='http://185.213.175.212:9000/'\
   minio_bucket='test'\
   minio_encryptionKey='jhL4qpnhqpuJq5VENASWtFVylscVjZHX'\
-  dbhost='mysql-container'\
+  dbhost='object-registry-writer-db'\
   dbport=3306\
   dbname='object-registry'\
   dbuser='root'\
-  dbpassword='f3is4afiVihIplmadrLF12!'\
+  dbpassword='magcentre'\
   API_GATEWAY='http://api-gateway:5000'
 
 COPY . .

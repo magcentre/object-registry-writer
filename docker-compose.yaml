@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+  registry-db:
+    container_name: object-registry-writer-db
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=magcentre
+      - MYSQL_DATABASE=object-registry
+    networks:
+      - cloud-network
+    volumes:
+      - /home/prasanna/container-stroage/object-registry-writer:/var/lib/mysql
+
+  service:
+    container_name: object-registry-writer-service
+    depends_on:
+      - registry-db
+    build: .
+    restart: unless-stopped
+    ports:
+      - 5001:5001
+    stdin_open: true
+    tty: true
+    networks:
+      - cloud-network
+
+networks:
+  cloud-network:
+    name: cloud-network
