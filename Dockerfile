@@ -20,7 +20,7 @@ ENV \
   dbname='object-registry'\
   dbuser='root'\
   dbpassword='magcentre'\
-  API_GATEWAY='http://api-gateway:5000'
+  API_GATEWAY='http://api-gateway-service:5000'
 
 COPY . .
 
