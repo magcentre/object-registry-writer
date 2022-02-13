@@ -42,5 +42,5 @@ jobs:
             sudo /usr/bin/docker stop object-writer
             sudo /usr/bin/docker rm object-writer
             sudo /usr/bin/docker rmi magcentre/object-writer .
-            sudo /usr/bin/docker build -t magcentre/object-writer .
-            sudo /usr/bin/docker run --network=magcentre-network --name=object-writer -d magcentre/object-writer
+            sudo /usr/local/bin/docker-compose down
+            sudo /usr/local/bin/docker-compose up -d
