@@ -20,7 +20,9 @@ ENV \
   dbname='object-registry'\
   dbuser='root'\
   dbpassword='magcentre'\
+  JWT_SECRET='5avo57Ive6RawrejEspow0prO6risl' \
   API_GATEWAY='http://api-gateway-service:5000'
+  
 
 COPY . .
 
