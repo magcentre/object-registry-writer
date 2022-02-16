@@ -16,7 +16,6 @@ const upload = (req, res) => {
 
   processor.processFile(req.files.file.path, req.auth.sub)
     .then((e) => processor.uploadToMinio(fileConfig, e))
-    .then((e) => processor.createRegistryEntry(e))
     .then((e) => sendResult(e, 200, res, req))
     .catch((e) => sendError(e, res, 500, req));
 };
