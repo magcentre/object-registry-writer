@@ -2,25 +2,22 @@ const { models } = require('@magcentre/sequelize-helper');
 
 const minio = require('@magcentre/minio-helper');
 
-const utils = require('@magcentre/api-utils');
-
-const path = require('path');
-
 /**
  * upload encrypted file to minio and get the minio response
  * @param {Object} file file object with file meta data
- * @param {String} filePath 
- * @returns 
+ * @param {String} filePath
+ * @returns
  */
 const uploadToMinio = (file, filePath) => {
   const fileConfig = {
-    name: utils.randomString(32) + path.extname(file.originalname),
+    name: file.originalname,
     bucket: file.bucket,
     type: file.mimetype,
     size: file.size,
     filePath,
   };
-  return minio.upload(fileConfig);
+
+  return minio.putObject(fileConfig);
 };
 
 /**
@@ -39,7 +36,7 @@ const createRegistryEntry = (minioResponse) => models.registry.create({
 
 /**
  * encrypt the file
- * @param {String} filePath 
+ * @param {String} filePath
  * @returns String encrypted filepath
  */
 const processFile = (filePath, encKey) => minio.processfile(filePath, encKey);

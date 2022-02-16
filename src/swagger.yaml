@@ -5,7 +5,7 @@ info:
   description: The micro-service intended to provide the mechanisum to store the objects to the minio server.
   contact:
     email: prasanna@makonlinesolutions.com
-host: 185.213.175.212:5001
+host: localhost:5001
 securityDefinitions:
   jwt:
     type: apiKey
@@ -51,10 +51,6 @@ paths:
           name: file
           type: file
           description: The Object to upload into registry
-        - in: query
-          name: userId
-          type: string
-          description: UserId for the encryption of the file
       responses:
         "200":
           description: Success

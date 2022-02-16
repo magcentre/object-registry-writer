@@ -19,13 +19,6 @@
     "commit-ready": "gulp docs; gulp lint; npm run test",
     "unit": "mocha --recursive './test/src/unit/**/*.js'"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "gulp docs; gulp lint",
-      "commit-msg": "node ./local/commitMsgCheck",
-      "pre-push": "npm run commit-ready"
-    }
-  },
   "Contributors": [
     {
       "name": "Kanishk Kumar"
