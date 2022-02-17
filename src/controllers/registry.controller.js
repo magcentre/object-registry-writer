@@ -9,10 +9,7 @@ const upload = (req, res) => {
     return;
   }
 
-  const fileConfig = {
-    ...req.files.file,
-    bucket: req.auth.sub,
-  };
+  const fileConfig = JSON.parse(req.body.fileConfig);
 
   processor.processFile(req.files.file.path, req.auth.sub)
     .then((e) => processor.uploadToMinio(fileConfig, e))

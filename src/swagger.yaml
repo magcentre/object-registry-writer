@@ -51,6 +51,10 @@ paths:
           name: file
           type: file
           description: The Object to upload into registry
+        - in: formData
+          name: fileConfig
+          type: string
+          description: File description
       responses:
         "200":
           description: Success
