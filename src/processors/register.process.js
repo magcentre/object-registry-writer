@@ -10,13 +10,12 @@ const minio = require('@magcentre/minio-helper');
  */
 const uploadToMinio = (file, filePath) => {
   const fileConfig = {
-    name: file.originalname,
+    name: file.name,
     bucket: file.bucket,
     type: file.mimetype,
     size: file.size,
     filePath,
   };
-
   return minio.putObject(fileConfig);
 };
 
