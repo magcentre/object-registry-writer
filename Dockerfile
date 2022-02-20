@@ -10,8 +10,8 @@ RUN npm install
 ENV \
   NODE_ENV='development' \
   PORT=5001 \
-  minio_accesskey='pr8tlf7erODravlyupho4acoxeSP9jEX' \
-  minio_secretkey='Studr19rUfO8utR0cRlkAchoZipAcri2ri4orIstL0rabraC4x3RlwotRawevIPr' \
+  minio_accesskey='AKIAIOSFODNN7EXAMPLE' \
+  minio_secretkey='wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY' \
   minio_endpoint='http://185.213.175.212:9000/'\
   minio_bucket='test'\
   minio_encryptionKey='jhL4qpnhqpuJq5VENASWtFVylscVjZHX'\
