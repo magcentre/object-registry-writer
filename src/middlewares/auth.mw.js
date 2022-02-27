@@ -10,8 +10,8 @@ module.exports.jwt = async (req, res, next) => {
   const token = req.headers.authorization.replace('Bearer ', '');
 
   utils.verifyJWTToken(token, config.jwt.secret)
-  .then((decoded) => {
-    req.auth = decoded;
-    return next();
-  }).catch((err) => sendError(err, res, err.statusCode || 500, req));
+    .then((decoded) => {
+      req.auth = decoded;
+      return next();
+    }).catch((err) => sendError(err, res, err.statusCode || 500, req));
 };
