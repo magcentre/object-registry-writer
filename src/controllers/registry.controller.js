@@ -11,19 +11,11 @@ const upload = (req, res) => {
 
   const fileConfig = JSON.parse(req.body.fileConfig);
 
-  processor.processFile(req.files.file.path, req.auth.sub)
-    .then((e) => processor.uploadToMinio(fileConfig, e))
-    .then((e) => sendResult(e, 200, res, req))
-    .catch((e) => sendError(e, res, 500, req));
-};
-
-const create = (req, res) => {
-  processor.createRegistryEntry({ ...req.body, accessKey: req.body.url })
+  processor.upload(req.files.file.path, req.auth.sub, fileConfig)
     .then((e) => sendResult(e, 200, res, req))
     .catch((e) => sendError(e, res, 500, req));
 };
 
 module.exports = {
   upload,
-  create,
 };

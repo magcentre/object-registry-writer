@@ -2,6 +2,10 @@ const { models } = require('@magcentre/sequelize-helper');
 
 const minio = require('@magcentre/minio-helper');
 
+const fs = require('fs');
+
+const { getRichError } = require('@magcentre/response-helper');
+
 /**
  * upload encrypted file to minio and get the minio response
  * @param {Object} file file object with file meta data
@@ -25,13 +29,15 @@ const uploadToMinio = (file, filePath) => {
  * @returns FileModel
  */
 
-const createRegistryEntry = (minioResponse) => models.registry.create({
-  name: minioResponse.name,
-  type: minioResponse.type,
-  size: minioResponse.size,
-  url: minioResponse.accessKey,
-  bucket: minioResponse.bucket,
-});
+const createRegistryEntry = (fileConfig) => models.registry.create({
+  name: fileConfig.originalname,
+  type: fileConfig.mimetype,
+  size: fileConfig.size,
+  url: fileConfig.tag,
+  bucket: fileConfig.bucket,
+})
+  .then(() => fileConfig.response)
+  .catch((err) => getRichError('System', 'error while creating new entry for writer registry', { fileConfig }, err, 'error', null));
 
 /**
  * encrypt the file
@@ -40,8 +46,29 @@ const createRegistryEntry = (minioResponse) => models.registry.create({
  */
 const processFile = (filePath, encKey) => minio.processfile(filePath, encKey);
 
+/**
+ * delete cached file
+ * @param {String} filePath
+ * @returns String encrypted filepath
+ */
+const deleteCacheFile = (filePath, entryResponse) => fs.promises.unlink(`${filePath}.enc`)
+  .then(() => entryResponse)
+  .catch((err) => getRichError('Parameter', 'error while clearing cache', { filePath, entryResponse }, err, 'error', null));
+
+/**
+ * Upload object of minio
+ * @param {String} filePath file path
+ * @param {*} encKey key to encrypt the file
+ * @param {*} fileConfig fileconfig from file data
+ * @returns Promise
+ */
+const upload = (filePath, encKey, fileConfig) => processFile(filePath, encKey)
+  .then((response) => uploadToMinio(fileConfig, response))
+  .then((response) => createRegistryEntry({ ...fileConfig, tag: response.ETag, response }))
+  .then((entryResponse) => deleteCacheFile(filePath, entryResponse))
+  .then(() => ({ ...fileConfig }))
+  .catch((err) => getRichError('Parameter', 'error while uploading the object to registry writer', { filePath, encKey, fileConfig }, err, 'error', null));
+
 module.exports = {
-  uploadToMinio,
-  createRegistryEntry,
-  processFile,
+  upload,
 };
