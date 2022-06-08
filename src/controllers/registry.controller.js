@@ -13,7 +13,7 @@ const upload = (req, res) => {
 
   processor.upload(req.files.file.path, req.auth.sub, fileConfig)
     .then((e) => sendResult(e, 200, res, req))
-    .catch((e) => sendError(e, res, 500, req));
+    .catch((error) => sendError(error, res, 500, req));
 };
 
 module.exports = {
