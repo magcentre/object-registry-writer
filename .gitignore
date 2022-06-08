@@ -67,7 +67,7 @@ package-lock.json
 mochawesome-report
 api
 temp
-
+uploads
 server-start.sh
 local/start.json
 local/testStart.json

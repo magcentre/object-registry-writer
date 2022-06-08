@@ -22,9 +22,6 @@
   "Contributors": [
     {
       "name": "Kanishk Kumar"
-    },
-    {
-      "name": "Prasanna Mangoli"
     }
   ],
   "keywords": [
@@ -34,14 +31,15 @@
   ],
   "private": true,
   "dependencies": {
-    "@magcentre/api-utils": "^1.0.9",
-    "@magcentre/init": "^1.0.1",
+    "@magcentre/api-utils": "^1.0.0",
+    "@magcentre/init": "^1.0.2",
     "@magcentre/logger-helper": "^1.0.1",
-    "@magcentre/minio-helper": "^1.0.6",
-    "@magcentre/response-helper": "^1.0.1",
-    "@magcentre/sequelize-helper": "^1.0.0",
+    "@magcentre/minio-helper": "^1.0.9",
+    "@magcentre/mongoose-helper": "^1.0.1",
+    "@magcentre/response-helper": "^1.0.3",
     "express": "^4.12.3",
-    "systeminformation": "^5.9.8"
+    "sequelize": "^6.20.1",
+    "systeminformation": "^5.11.16"
   },
   "devDependencies": {
     "eslint": "^8.4.1",
