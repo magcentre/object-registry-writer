@@ -28,6 +28,6 @@ export minio_ssl=false
 
 export ENC_KEY='5avo57Ive6Rawrisl'
 
-export API_GATEWAY='http://localhost:4999'
+export API_GATEWAY='http://localhost:5000'
 
 /usr/local/bin/node src/index.js

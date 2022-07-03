@@ -30,7 +30,7 @@ const registrySchema = mongoose.Schema(
   },
 );
 
-registrySchema.index({ key: 1, user: 1 }, { unique: 1 });
+// registrySchema.index({ key: 1, user: 1 }, { unique: 1 });
 const Registry = mongoose.model('registry', registrySchema);
 
 
@@ -51,28 +51,6 @@ Registry.createRegistryEntry = (fileConfig) => Registry.create({
   .catch((err) => {
     throw getRichError('System', 'error while creating new entry for writer registry', { fileConfig }, err, 'error', null);
   });
-
-// const { DataTypes } = require('sequelize');
-
-// const attributes = {
-//   name: { type: DataTypes.STRING, allowNull: false },
-//   type: { type: DataTypes.STRING, allowNull: false },
-//   size: { type: DataTypes.INTEGER, allowNull: false },
-//   url: { type: DataTypes.STRING, allowNull: false },
-//   bucket: { type: DataTypes.STRING, allowNull: false },
-// };
-
-// const options = {
-//   timestamps: true,
-// };
-
-
-
-// module.exports = (sequelize) => {
-//   const model = sequelize.define('registry', attributes, options);
-
-//   return model;
-// };
 
 module.exports = {
   model: Registry,
