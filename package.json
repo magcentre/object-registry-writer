@@ -32,11 +32,11 @@
   "private": true,
   "dependencies": {
     "@magcentre/api-utils": "^1.0.0",
-    "@magcentre/init": "^1.0.2",
-    "@magcentre/logger-helper": "^1.0.1",
-    "@magcentre/minio-helper": "^1.0.9",
-    "@magcentre/mongoose-helper": "^1.0.1",
-    "@magcentre/response-helper": "^1.0.3",
+    "@magcentre/init": "^1.0.0",
+    "@magcentre/logger-helper": "^1.0.0",
+    "@magcentre/minio-helper": "^1.0.0",
+    "@magcentre/mongoose-helper": "^1.0.0",
+    "@magcentre/response-helper": "^1.0.0",
     "express": "^4.12.3",
     "sequelize": "^6.20.1",
     "systeminformation": "^5.11.16"
