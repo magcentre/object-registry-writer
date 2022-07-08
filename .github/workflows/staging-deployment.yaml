@@ -39,9 +39,9 @@ jobs:
           script: |
             cd /home/prasanna/deplyement/object-writer
             pwd
-            sudo /usr/bin/docker stop object-writer
-            sudo /usr/bin/docker rm object-writer
-            sudo /usr/bin/docker rmi magcentre/object-writer .
+            sudo /usr/bin/docker stop object-registry-writer-service
+            sudo /usr/bin/docker rm object-registry-writer-service
+            sudo /usr/bin/docker rmi magcentre/object-registry-writer-service .
             sudo /usr/local/bin/docker-compose down
-            sudo /usr/bin/docker rmi object-writer_service
+            sudo /usr/bin/docker rmi object-registry-writer-service
             sudo /usr/local/bin/docker-compose up -d
