@@ -1,8 +1,7 @@
 version: '3'
 
 services:
-
- registry-db:
+  registry-db:
     container_name: object-registry-writer-db
     image: mongo
     restart: unless-stopped
